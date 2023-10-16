@@ -10,8 +10,8 @@ body {
     width: 80%;
     background-color: black;
     border-color: white;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 20px;
+    padding: 25px;
     margin-bottom: 15px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }

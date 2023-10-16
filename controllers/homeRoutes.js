@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Get route for the homepage to display all posts
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -24,7 +23,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get individual post by ID
 router.get('/post/:id', async (req, res) => {
   try {
     const post_id = req.params.id;
@@ -40,7 +38,6 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-// GET comments for a specific post by post's ID
 router.get('/post/:id/comments', async (req, res) => {
   try {
     const commentsData = await Comment.findAll({
@@ -58,13 +55,12 @@ router.get('/post/:id/comments', async (req, res) => {
   }
 });
 
-// Edit a specific post by post's ID
 router.get('/edit/:id', async (req, res) => {
   try {
     const postData = await Post.findOne({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id, // Ensure the user can only update their own posts
+        user_id: req.session.user_id, 
       },
     });
 
