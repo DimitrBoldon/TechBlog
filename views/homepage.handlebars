@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Homepage</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container mt-4">
+    <h1 class="mb-4">Recent Posts</h1>
+    <div class="row">
+      {{#each posts as |post|}}
+        <div id="post" data-post-id="{{post.id}}" class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{post.title}}</h4>
+              <p style="font-size:small; color:lightgray;" class="card-text">{{post.user.username}} | {{format_time post.lastUpdated}}</p>
+              {{> post-button}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
